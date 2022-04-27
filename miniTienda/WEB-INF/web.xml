@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app>
+    <servlet>
+        <servlet-name>MiniTienda</servlet-name>
+        <servlet-class>MiniTienda</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MiniTienda</servlet-name>
+        <url-pattern>/MiniTienda</url-pattern>
+    </servlet-mapping>
+</web-app>
