@@ -1,11 +1,14 @@
+
+import java.util.Objects;
+
 public class Ejemplar {
 
     private final String modelo;
     private final String marca;
     private final String color;
     private final Integer precio;
-    private final Integer cantidad;
-    private final Integer precioTotal;
+    private Integer cantidad;
+    private Integer precioTotal;
 
     public Ejemplar(String modelo, String marca, String color, Integer precio, Integer cantidad, Integer precioTotal) {
         this.modelo = modelo;
@@ -38,5 +41,45 @@ public class Ejemplar {
 
     public Integer getCantidad() {
         return cantidad;
-    }    
+    }
+
+    public void setPrecioTotal(Integer p){
+      precioTotal+=p;
+    }
+
+    public void setCantidad(Integer c){
+      cantidad+=c;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.modelo);
+        hash = 79 * hash + Objects.hashCode(this.marca);
+        hash = 79 * hash + Objects.hashCode(this.color);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Ejemplar other = (Ejemplar) obj;
+        if (!Objects.equals(this.modelo, other.modelo)) {
+            return false;
+        }
+        if (!Objects.equals(this.marca, other.marca)) {
+            return false;
+        }
+        return Objects.equals(this.color, other.color);
+    }
+
+    
 }
