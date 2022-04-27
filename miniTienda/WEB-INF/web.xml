@@ -6,8 +6,18 @@
         <servlet-class>MiniTienda</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>Accion</servlet-name>
+        <servlet-class>Accion</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>MiniTienda</servlet-name>
         <url-pattern>/MiniTienda</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Accion</servlet-name>
+        <url-pattern>/Accion</url-pattern>
     </servlet-mapping>
 </web-app>
