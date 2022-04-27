@@ -2,8 +2,8 @@
 
 <web-app>
     <servlet>
-        <servlet-name>MiniTienda</servlet-name>
-        <servlet-class>MiniTienda</servlet-class>
+        <servlet-name>Carrito</servlet-name>
+        <servlet-class>Carrito</servlet-class>
     </servlet>
 
     <servlet>
@@ -11,13 +11,23 @@
         <servlet-class>Accion</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>Pago</servlet-name>
+        <servlet-class>Pago</servlet-class>
+    </servlet>
+
     <servlet-mapping>
-        <servlet-name>MiniTienda</servlet-name>
-        <url-pattern>/MiniTienda</url-pattern>
+        <servlet-name>Carrito</servlet-name>
+        <url-pattern>/Carrito</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>Accion</servlet-name>
         <url-pattern>/Accion</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Pago</servlet-name>
+        <url-pattern>/Pago</url-pattern>
     </servlet-mapping>
 </web-app>

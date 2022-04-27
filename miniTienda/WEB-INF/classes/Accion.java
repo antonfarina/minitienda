@@ -4,9 +4,6 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-/**
- * Servlet para almacenar CDs seleccionados por el usuario
- */
 public class Accion extends HttpServlet {
 
     // Metodo POST
@@ -17,7 +14,6 @@ public class Accion extends HttpServlet {
 
     // Metodo GET
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         // Ejecutamos en funcion de la accion del usuario
         // Si Accion es "añadir al carrito"
         if (request.getParameter("anadir") != null) {
@@ -45,14 +41,40 @@ public class Accion extends HttpServlet {
                 sesion.setAttribute("carrito", new ArrayList<>());
                 carrito = (ArrayList) sesion.getAttribute("carrito");
             }
-            //añadimos el ejemplar al carrito
-            carrito.add(ejemplar);
+            //comprobamos si ya se habia adquirido un movil igual para aumentar la cantidad
+            if(carrito.contains(ejemplar)){
+              for(int i=0; i<carrito.size(); i++){
+                if(carrito.get(i).equals(ejemplar)){
+                  carrito.get(i).setPrecioTotal(ejemplar.getCantidad()*ejemplar.getPrecio());
+                  carrito.get(i).setCantidad(ejemplar.getCantidad());
+                  break;
+                }
+              }
+            }else{
+              //añadimos el ejemplar nuevo al carrito
+              carrito.add(ejemplar);
+            }
             //lo guardamos en la sesion
             sesion.setAttribute("carrito", carrito);
+            //buscamos el atributo de total de compra y si no existe lo creamos
+            Integer totalCompra = (Integer) sesion.getAttribute("totalCompra");
+            if (totalCompra == null) {
+                // Inicializamos el atributo totalCompra
+                sesion.setAttribute("totalCompra", new Integer(0));
+                totalCompra = (Integer) sesion.getAttribute("totalCompra");
+            }
+            //aumentamos el precio total del pedido
+            totalCompra += ejemplar.getPrecio();
+          
+            //lo guardamos en la sesion
+            sesion.setAttribute("totalCompra", totalCompra);
+            gotoPage("/index.html", request, response);
         } // Si Accion es "ver"...
         else if (request.getParameter("ver") != null) {
             //abrimos el carrito de la compra
-            gotoPage("/MiniTienda", request, response);
+            gotoPage("/Carrito", request, response);
+        }else if(request.getParameter("pagar") != null){
+            gotoPage("/Pago", request, response);
         }
     }
 
