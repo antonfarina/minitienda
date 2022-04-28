@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.StringTokenizer;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -55,7 +54,8 @@ public class Carrito extends HttpServlet {
                     + "<td>" + carrito.get(i).getPrecioTotal() + "</td>"
                     + "<td>"
                     + "<form method=\"get\" action=\"Accion\"><input type=\"radio\" name=\"eliminado\" value=\"" + i + "\"></form>"
-                    + "</td>";
+                    + "</td>"
+                    + "</tr>";
         }
         pagina += "<tr>"
                 + "<td></td>"

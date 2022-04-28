@@ -1,7 +1,7 @@
-
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Ejemplar {
+public class Ejemplar implements Serializable {
 
     private final String modelo;
     private final String marca;
@@ -81,5 +81,10 @@ public class Ejemplar {
         return Objects.equals(this.color, other.color);
     }
 
-    
+    @Override
+    public String toString() {
+        return "Ejemplar{" + "modelo=" + modelo + ", marca=" + marca + ", color=" + color + ", precio=" + precio + ", cantidad=" + cantidad + ", precioTotal=" + precioTotal + '}';
+    }
+
+
 }
