@@ -42,23 +42,31 @@ public class Carrito extends HttpServlet {
                 + "<th>Precio por unidad</th>"
                 + "<th>Cantidad</th>"
                 + "<th>Precio total</th>"
+                + "<th></th>"
                 + "</tr>";
 
-        for (Ejemplar e: carrito) {
+        for (int i=0; i<carrito.size(); i++) {
             pagina += "<tr>"
-                    + "<td>" + e.getMarca() + "</td>"
-                    + "<td>" + e.getModelo() + "</td>"
-                    + "<td>" + e.getColor() + "</td>"
-                    + "<td>" + e.getPrecio() + "</td>"
-                    + "<td>" + e.getCantidad() + "</td>"
-                    + "<td>" + e.getPrecioTotal() + "</td>"
-                    + "</tr>";
+                    + "<td>" + carrito.get(i).getMarca() + "</td>"
+                    + "<td>" + carrito.get(i).getModelo() + "</td>"
+                    + "<td>" + carrito.get(i).getColor() + "</td>"
+                    + "<td>" + carrito.get(i).getPrecio() + "</td>"
+                    + "<td>" + carrito.get(i).getCantidad() + "</td>"
+                    + "<td>" + carrito.get(i).getPrecioTotal() + "</td>"
+                    + "<td>"
+                    + "<form method=\"get\" action=\"Accion\"><input type=\"radio\" name=\"eliminado\" value=\"" + i + "\"></form>"
+                    + "</td>";
         }
-        pagina += "</table>"
-                + "<table>"
-                + "<tr>"
+        pagina += "<tr>"
+                + "<td></td>"
+                + "<td></td>"
+                + "<td></td>"
+                + "<td></td>"
                 + "<td>TOTAL DE COMPRA</td>"
                 + "<td>" + totalCompra + "</td>"
+                + "<td>"
+                + "<form method=\"get\" action=\"Accion\"><input type=\"submit\" name=\"eliminar\" value=\"Eliminar\"></form>"
+                + "</td>"
                 + "</tr>"
                 + "</table>"
                 + "<p><a HREF=\"/minitienda/index.html\">Seguir comprando</a></p>"

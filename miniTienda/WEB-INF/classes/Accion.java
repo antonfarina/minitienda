@@ -89,6 +89,36 @@ public class Accion extends HttpServlet {
         }else if(request.getParameter("volveralcarrito")!=null){
           //abrimos el carrito de la compra
           gotoPage("/Carrito", request, response);
+        }else if(request.getParameter("eliminar")!=null){
+          //obtenemos el indice el elemento a eliminar
+          Integer i = Integer.parseInt(request.getParameter("eliminado"));
+          // Generamos un objeto sesion
+          HttpSession sesion = request.getSession(true);
+          ArrayList<Ejemplar> carrito = (ArrayList) sesion.getAttribute("carrito");
+          if (carrito == null) {
+              System.out.println("El carrito de compra esta vacio");
+              // Inicializamos el atributo carrito
+              sesion.setAttribute("carrito", new ArrayList<>());
+              carrito = (ArrayList) sesion.getAttribute("carrito");
+          }
+
+          //buscamos el atributo de total de compra y si no existe lo creamos
+          Integer totalCompra = (Integer) sesion.getAttribute("totalCompra");
+          if (totalCompra == null) {
+              // Inicializamos el atributo totalCompra
+              sesion.setAttribute("totalCompra", new Integer(0));
+              totalCompra = (Integer) sesion.getAttribute("totalCompra");
+          }
+          //decrementamos el precio total del pedido
+          totalCompra -= carrito.get(i).getPrecio();
+          //quitamos el articulo
+          carrito.remove(i);
+          //lo guardamos en la sesion
+          sesion.setAttribute("carrito", carrito);
+          //lo guardamos en la sesion
+          sesion.setAttribute("totalCompra", totalCompra);
+          //abrimos el carrito de la compra
+          gotoPage("/Carrito", request, response);
         }
     }
 
