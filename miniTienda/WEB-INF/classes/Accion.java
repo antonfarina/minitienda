@@ -65,7 +65,7 @@ public class Accion extends HttpServlet {
             }
             //aumentamos el precio total del pedido
             totalCompra += ejemplar.getPrecio();
-          
+
             //lo guardamos en la sesion
             sesion.setAttribute("totalCompra", totalCompra);
             gotoPage("/index.html", request, response);
@@ -75,6 +75,20 @@ public class Accion extends HttpServlet {
             gotoPage("/Carrito", request, response);
         }else if(request.getParameter("pagar") != null){
             gotoPage("/Pago", request, response);
+        }else if(request.getParameter("pagaryvolver")!=null){
+          //eliminamos los atributos de la sesion
+          HttpSession sesion = request.getSession(true);
+          if(sesion.getAttribute("carrito")!=null){
+            sesion.removeAttribute("carrito");
+          }
+          if(sesion.getAttribute("totalCompra")!=null){
+            sesion.removeAttribute("totalCompra");
+          }
+          //volvemos a la pagina principal
+          gotoPage("/index.html", request, response);
+        }else if(request.getParameter("volveralcarrito")!=null){
+          //abrimos el carrito de la compra
+          gotoPage("/Carrito", request, response);
         }
     }
 

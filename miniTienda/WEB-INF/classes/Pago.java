@@ -32,8 +32,10 @@ public class Pago extends HttpServlet {
                 + "<BODY BGCOLOR=\"#FDF5E6\">"
                 + "<center> <H1>Total del pedido:</H1>"
                 + "<center> <H2>" + totalCompra + " euros</H2>"
-                + "<p><a HREF=\"/minitienda/index.html\">Pagar y volver a la pagina principal</a></p>"
-                + "<form method=\"get\" action=\"Accion\"><input type=\"submit\" name=\"pagar\" value=\"Ver carrito\"></form>"
+                + "<form method=\"get\" action=\"Accion\">"
+                + "<input type=\"submit\" name=\"volveralcarrito\" value=\"Volver al carrito\">"
+                + "<input type=\"submit\" name=\"pagaryvolver\" value=\"Pagar y volver a la pagina principal\">"
+                + "</form>"
                 + "</BODY></HTML>";
         out.println(pagina);
     }
