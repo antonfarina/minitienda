@@ -3,23 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>TIENDA DE MÓVILES</title>
+  <link rel="stylesheet" href="css/index.css">
 </head>
 
-<body bgcolor="#FDF5E6">
-  <table align="center" border="0">
-    <tr>
-      <th><IMG SRC="" ALIGN="CENTER"></th>
-      <th>
-        <font face="Times New Roman,Times" size="+3">TIENDA DE MÓVILES</font>
-      </th>
-      <th><IMG SRC="" ALIGN="CENTER"></th>
-    </tr>
-  </table>
+<body>
+  <figure><img src="imagenes/portada.jpg" align="CENTER"></figure>
+  <h1>TIENDA DE MÓVILES</h1>
   <hr>
-  <p>
-    <center>
-      <form method="get" action="Accion">
-        <b>Móvil:</b>
+
+  <center>
+    <form method="get" action="Accion">
+      <div id="form"><b id="etmovil">Móvil:</b>
         <select name="movil">
           <option>Iphone 12 | Apple | 800€</option>
           <option>Iphone 13 pro | Apple | 1199€</option>
@@ -32,19 +26,23 @@
           <option>Pixel 3 | Google | 700€</option>
           <option>LMX525 | LG | 130€</option>
         </select>
-        <b>Color:</b>
-        <input type="radio" name="color" value="Negro" checked>Negro
-        <input type="radio" name="color" value="Blanco">Blanco
-        <input type="radio" name="color" value="Gris">Gris
-        <b>Cantidad:</b>
+
+        <b id="etcolor">Color:</b>
+        <div id="radio">
+          <input type="radio" name="color" value="Negro" checked>Negro
+          <input type="radio" name="color" value="Blanco">Blanco
+          <input type="radio" name="color" value="Gris">Gris
+        </div>
+        <b id="etcantidad">Cantidad:</b>
         <input type="text" name="cantidad" value="1">
-        <p>
-          <center>
-            <input type="submit" name="anadir" value="Añadir al carrito">
-          </center>
-      </form>
-    </center>
-    <hr>
+      </div>
+
+      <center>
+        <input type="submit" name="anadir" value="Añadir al carrito">
+      </center>
+    </form>
+  </center>
+  <hr>
 </body>
 
 </html>

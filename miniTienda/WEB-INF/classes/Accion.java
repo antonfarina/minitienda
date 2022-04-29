@@ -65,9 +65,10 @@ public class Accion extends HttpServlet {
                 System.out.println("El precio total no esta inicializado");
                 // Inicializamos el atributo totalCompra
                 sesion.setAttribute("totalCompra", new Integer(0));
+                totalCompra = (Integer) sesion.getAttribute("totalCompra");
             }
             //aumentamos el precio total del pedido
-            totalCompra += ejemplar.getPrecio();
+            totalCompra += precioTotal;
 
             //lo guardamos en la sesion
             sesion.setAttribute("totalCompra", totalCompra);
@@ -110,7 +111,7 @@ public class Accion extends HttpServlet {
               totalCompra = (Integer) sesion.getAttribute("totalCompra");
           }
           //decrementamos el precio total del pedido
-          totalCompra -= carrito.get(i).getPrecio();
+          totalCompra -= carrito.get(i).getPrecioTotal();
           //quitamos el articulo
           carrito.remove(i);
           //lo guardamos en la sesion

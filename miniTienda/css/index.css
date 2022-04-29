@@ -1,0 +1,49 @@
+html{
+  font-family: Verdana;
+}
+body{
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+h1{
+  text-align: center;
+}
+figure{
+  width: auto;
+  margin: auto;
+}
+figure>img{
+  width: 100%;
+}
+input[type="submit"], input[type="radio"], select {
+  cursor: pointer;
+  background-color: white;
+  border: solid 1px black;
+  border-radius: 5px;
+}
+
+input[type="submit"]{
+  padding: 0.5vw;
+  font-size: 1.1vw;
+  background-color: #00e6ac;
+  border: 0px;
+}
+
+#form{
+  display: grid;
+  grid-template-areas: "etmovil selec" "etcolor radio" "etcantidad text";
+  margin: 0 35vw;
+  grid-gap: 1.5vw;
+  padding: 3vw 0;
+  vertical-align:middle;
+}
+
+#form > input, #form >select{
+  padding: 0.5vw;
+}
+
+#radio{
+  display: flex;
+  justify-content: space-around;
+}
