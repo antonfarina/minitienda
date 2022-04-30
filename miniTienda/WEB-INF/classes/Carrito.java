@@ -29,11 +29,11 @@ public class Carrito extends HttpServlet {
         PrintWriter out = response.getWriter();
         String pagina = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//ES\">\n"
                 + "<HTML>\n"
-                + "<HEAD>"+
-                + "<TITLE>Carrito de compra:</TITLE>"+
-                + "<link rel=\"stylesheet\" href=\"../css/carrito.css\">"
+                + "<HEAD>"
+                + "<TITLE>Carrito de compra:</TITLE>"
+                + "<link rel=\"stylesheet\" href=\"css/carrito.css\">"
                 + "</HEAD>"
-                + "<H1>Compra </H1>"
+                + "<div><H1>Compra</H1>"
                 + "<form method=\"get\" action=\"Accion\">"
                 + "<table>"
                 + "<tr>"
@@ -74,6 +74,7 @@ public class Carrito extends HttpServlet {
                 + "</table>"
                 + "<p><a HREF=\"/minitienda/index.html\">Seguir comprando</a></p>"
                 + "<form method=\"get\" action=\"Accion\"><input type=\"submit\" name=\"irapagar\" value=\"Proceder al pago\"></form>"
+                + "</div>"
                 + "</BODY></HTML>";
 
         out.println(pagina);

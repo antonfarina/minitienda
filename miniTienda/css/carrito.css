@@ -26,9 +26,37 @@ input[type="submit"]{
 
 table{
   text-align: center;
+  width: 100%;
 
 }
-table >th{
+table > th{
   background-color: #00e6ac;
   color: white;
+}
+
+#btneliminar{
+  width: 100%;
+  padding: 0.5vw;
+  font-size: 1.1vw;
+  background-color: #f2d95a;
+  border: 0px;
+}
+
+div {
+  margin: auto;
+  text-align: center;
+  width: 70%;
+  background-color: #e6f7f4;
+}
+
+div > *{
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  background-color: #c5e8de;
+  padding: 0.5vw;
+  border-radius: 5px;
 }
