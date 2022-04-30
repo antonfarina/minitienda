@@ -1,13 +1,11 @@
 html{
   font-family: Verdana;
+  text-align: center;
 }
 body{
-  background-color: white;
+  background-color: #e6f7f4;
   margin: 0;
   padding: 0;
-}
-h1{
-  text-align: center;
 }
 figure{
   width: auto;
