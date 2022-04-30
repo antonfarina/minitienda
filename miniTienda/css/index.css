@@ -21,6 +21,7 @@ input[type="submit"], input[type="radio"], select {
   background-color: white;
   border: solid 1px black;
   border-radius: 5px;
+  font-size: 1vw;
 }
 
 input[type="submit"]{
@@ -41,6 +42,7 @@ input[type="submit"]{
 
 #form > input, #form >select{
   padding: 0.5vw;
+  font-size: 1vw;
 }
 
 #radio{

@@ -79,10 +79,10 @@ public class Accion extends HttpServlet {
         }else if(request.getParameter("pagaryvolver")!=null){
           //eliminamos los atributos de la sesion
           HttpSession sesion = request.getSession(true);
-          if(sesion.getAttribute("carrito")!=null){
+          if(((ArrayList)sesion.getAttribute("carrito"))!=null){
             sesion.removeAttribute("carrito");
           }
-          if(sesion.getAttribute("totalCompra")!=null){
+          if(((Integer)sesion.getAttribute("totalCompra"))!=null){
             sesion.removeAttribute("totalCompra");
           }
           //volvemos a la pagina principal
