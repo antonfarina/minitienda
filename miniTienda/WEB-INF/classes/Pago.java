@@ -33,7 +33,7 @@ public class Pago extends HttpServlet {
                 + "<form method=\"get\" action=\"Accion\">"
                 + "<input type=\"submit\" name=\"volveralcarrito\" value=\"Volver al carrito\">"
                 + "</form>"
-                + "<form method=\"get\" action=\"Accion\">"
+                + "<form method=\"post\" action=\"Accion\">"
                 + "<input type=\"submit\" name=\"pagaryvolver\" value=\"Pagar y volver a la pagina principal\">"
                 + "</form>"
                 + "</BODY></HTML>";
