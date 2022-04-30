@@ -9,38 +9,33 @@
 <body>
   <figure><img src="imagenes/portada.jpg" align="CENTER"></figure>
   <h1>TIENDA DE MÓVILES</h1>
+  <form method="get" action="Accion">
+    <div id="form">
+      <b>Móvil:</b>
+      <select name="movil">
+        <option>Iphone 12 | Apple | 800€</option>
+        <option>Iphone 13 pro | Apple | 1199€</option>
+        <option>Redmi 5 | Xiaomi | 299€</option>
+        <option>Galaxy S22 | Samsung | 899€</option>
+        <option>Z flip | Samsung | 1999€</option>
+        <option>Nord 2 5G | OnePlus | 500€</option>
+        <option>P30 Lite | Huawei | 250€</option>
+        <option>Reno 4 5G | Oppo | 450€</option>
+        <option>Pixel 3 | Google | 700€</option>
+        <option>LMX525 | LG | 130€</option>
+      </select>
 
-  <center>
-    <form method="get" action="Accion">
-      <div id="form"><b id="etmovil">Móvil:</b>
-        <select name="movil">
-          <option>Iphone 12 | Apple | 800€</option>
-          <option>Iphone 13 pro | Apple | 1199€</option>
-          <option>Redmi 5 | Xiaomi | 299€</option>
-          <option>Galaxy S22 | Samsung | 899€</option>
-          <option>Z flip | Samsung | 1999€</option>
-          <option>Nord 2 5G | OnePlus | 500€</option>
-          <option>P30 Lite | Huawei | 250€</option>
-          <option>Reno 4 5G | Oppo | 450€</option>
-          <option>Pixel 3 | Google | 700€</option>
-          <option>LMX525 | LG | 130€</option>
-        </select>
-
-        <b id="etcolor">Color:</b>
-        <div id="radio">
-          <input type="radio" name="color" value="Negro" checked>Negro
-          <input type="radio" name="color" value="Blanco">Blanco
-          <input type="radio" name="color" value="Gris">Gris
-        </div>
-        <b id="etcantidad">Cantidad:</b>
-        <input type="text" name="cantidad" value="1">
+      <b>Color:</b>
+      <div id="radio">
+        <input type="radio" name="color" value="Negro" checked>Negro
+        <input type="radio" name="color" value="Blanco">Blanco
+        <input type="radio" name="color" value="Gris">Gris
       </div>
-
-      <center>
-        <input type="submit" name="anadir" value="Añadir al carrito">
-      </center>
-    </form>
-  </center>
+      <b>Cantidad:</b>
+      <input type="text" name="cantidad" value="1">
+    </div>
+    <input type="submit" name="anadir" value="Añadir al carrito">
+  </form>
 </body>
 
 </html>
