@@ -31,6 +31,7 @@ public class Carrito extends HttpServlet {
                 + "<HTML>\n"
                 + "<HEAD>"
                 + "<TITLE>Carrito de compra:</TITLE>"
+                + "<meta charset=\"UTF-8\">"
                 + "<link rel=\"stylesheet\" href=\"css/carrito.css\">"
                 + "</HEAD>"
                 + "<div><H1>Carrito de la compra</H1>"

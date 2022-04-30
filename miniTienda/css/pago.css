@@ -1,0 +1,38 @@
+html{
+  font-family: Verdana;
+}
+body{
+  background-image: url('../imagenes/pago.png');
+  margin: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-color: #c9497b;
+  color: white;
+}
+h1{
+  text-align: center;
+}
+
+div {
+  margin: auto;
+  margin-top: 1vw;
+  text-align: center;
+  width: 25%;
+  padding: 2vw;
+}
+
+div > *{
+  text-align: center;
+  opacity:100%;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 0.5vw;
+  font-size: 1.1vw;
+  background-color: #43c4e4;
+  border: 0px;
+  color: white;
+}

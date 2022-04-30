@@ -26,16 +26,19 @@ public class Pago extends HttpServlet {
                 + "<HEAD>"
                 + "<TITLE>Plataforma de pago:</TITLE>"
                 + "<meta charset=\"UTF-8\">"
+                + "<link rel=\"stylesheet\" href=\"css/pago.css\">"
                 + "</HEAD>"
-                + "<BODY BGCOLOR=\"#FDF5E6\">"
-                + "<center> <H1>Total del pedido:</H1>"
-                + "<center> <H2>" + totalCompra + " euros</H2>"
+                + "<BODY>"
+                + "<div>"
+                + "<H1>PLATAFORMA DE PAGO</H1>"
+                + "<H2>Importe total: " + totalCompra + " euros</H2>"
                 + "<form method=\"get\" action=\"Accion\">"
                 + "<input type=\"submit\" name=\"volveralcarrito\" value=\"Volver al carrito\">"
                 + "</form>"
                 + "<form method=\"post\" action=\"Accion\">"
-                + "<input type=\"submit\" name=\"pagaryvolver\" value=\"Pagar y volver a la pagina principal\">"
+                + "<input type=\"submit\" name=\"pagaryvolver\" value=\"Pagar\">"
                 + "</form>"
+                + "</div>"
                 + "</BODY></HTML>";
         out.println(pagina);
     }
