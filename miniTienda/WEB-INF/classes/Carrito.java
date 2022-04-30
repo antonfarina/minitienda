@@ -29,11 +29,13 @@ public class Carrito extends HttpServlet {
         PrintWriter out = response.getWriter();
         String pagina = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//ES\">\n"
                 + "<HTML>\n"
-                + "<HEAD><TITLE>Carrito de compra:</TITLE></HEAD>\n"
-                + "<BODY BGCOLOR=\"#FDF5E6\">\n"
-                + "<center> <H1>Compra </H1>\n"
-                + "\n\n"
-                + "<table border=\"0\" cellpadding=\"0\" width=\"75%\" bgcolor=\"#FFFFFF\">"
+                + "<HEAD>"+
+                + "<TITLE>Carrito de compra:</TITLE>"+
+                + "<link rel=\"stylesheet\" href=\"../css/carrito.css\">"
+                + "</HEAD>"
+                + "<H1>Compra </H1>"
+                + "<form method=\"get\" action=\"Accion\">"
+                + "<table>"
                 + "<tr>"
                 + "<th>Marca</th>"
                 + "<th>Modelo</th>"
@@ -44,7 +46,7 @@ public class Carrito extends HttpServlet {
                 + "<th></th>"
                 + "</tr>";
 
-        for (int i=0; i<carrito.size(); i++) {
+        for (int i = 0; i < carrito.size(); i++) {
             pagina += "<tr>"
                     + "<td>" + carrito.get(i).getMarca() + "</td>"
                     + "<td>" + carrito.get(i).getModelo() + "</td>"
@@ -53,7 +55,7 @@ public class Carrito extends HttpServlet {
                     + "<td>" + carrito.get(i).getCantidad() + "</td>"
                     + "<td>" + carrito.get(i).getPrecioTotal() + "</td>"
                     + "<td>"
-                    + "<form method=\"get\" action=\"Accion\"><input type=\"radio\" name=\"eliminado\" value=\"" + i + "\"></form>"
+                    + "<input type=\"radio\" name=\"eliminado\" value=\"" + i + "\">"
                     + "</td>"
                     + "</tr>";
         }
@@ -65,12 +67,13 @@ public class Carrito extends HttpServlet {
                 + "<td>TOTAL DE COMPRA</td>"
                 + "<td>" + totalCompra + "</td>"
                 + "<td>"
-                + "<form method=\"get\" action=\"Accion\"><input type=\"submit\" name=\"eliminar\" value=\"Eliminar\"></form>"
+                + "<input type=\"submit\" name=\"eliminar\" id=\"btneliminar\" value=\"Eliminar\">"
+                + "</form>"
                 + "</td>"
                 + "</tr>"
                 + "</table>"
                 + "<p><a HREF=\"/minitienda/index.html\">Seguir comprando</a></p>"
-                + "<form method=\"get\" action=\"Accion\"><input type=\"submit\" name=\"pagar\" value=\"Proceder al pago\"></form>"
+                + "<form method=\"get\" action=\"Accion\"><input type=\"submit\" name=\"irapagar\" value=\"Proceder al pago\"></form>"
                 + "</BODY></HTML>";
 
         out.println(pagina);

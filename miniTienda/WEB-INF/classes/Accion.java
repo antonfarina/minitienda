@@ -74,17 +74,19 @@ public class Accion extends HttpServlet {
             sesion.setAttribute("totalCompra", totalCompra);
             gotoPage("/Carrito", request, response);
             //gotoPage("/index.html", request, response);
-        }else if(request.getParameter("pagar") != null){
+        }else if(request.getParameter("irapagar") != null){
             gotoPage("/Pago", request, response);
         }else if(request.getParameter("pagaryvolver")!=null){
           //eliminamos los atributos de la sesion
           HttpSession sesion = request.getSession(true);
-          if(((ArrayList)sesion.getAttribute("carrito"))!=null){
-            sesion.removeAttribute("carrito");
-          }
-          if(((Integer)sesion.getAttribute("totalCompra"))!=null){
-            sesion.removeAttribute("totalCompra");
-          }
+          ArrayList<Ejemplar> carrito = (ArrayList) sesion.getAttribute("carrito");
+          carrito.clear();
+          sesion.setAttribute("carrito", carrito);
+
+          //buscamos el atributo de total de compra y si no existe lo creamos
+          Integer totalCompra = (Integer) sesion.getAttribute("totalCompra");
+          totalCompra = 0;
+          sesion.setAttribute("totalCompra", totalCompra);
           //volvemos a la pagina principal
           gotoPage("/index.html", request, response);
         }else if(request.getParameter("volveralcarrito")!=null){
