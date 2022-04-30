@@ -115,9 +115,7 @@ public class Accion extends HttpServlet {
           //decrementamos el precio total del pedido
           totalCompra -= carrito.get(i).getPrecioTotal();
           //quitamos el articulo
-          carrito.remove(i);
-          System.out.println(i);
-          System.out.println(carrito);
+          carrito.remove(carrito.get(i));
           //lo guardamos en la sesion
           sesion.setAttribute("carrito", carrito);
           //lo guardamos en la sesion
