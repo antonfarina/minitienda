@@ -8,8 +8,21 @@ public class Accion extends HttpServlet {
 
     // Metodo POST
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
         request.setCharacterEncoding("UTF-8");
+        if (request.getParameter("pagaryvolver") != null) {
+            //eliminamos los atributos de la sesion
+            HttpSession sesion = request.getSession(true);
+            ArrayList<Ejemplar> carrito = (ArrayList) sesion.getAttribute("carrito");
+            carrito.clear();
+            sesion.setAttribute("carrito", carrito);
+
+            //buscamos el atributo de total de compra y si no existe lo creamos
+            Integer totalCompra = (Integer) sesion.getAttribute("totalCompra");
+            totalCompra = 0;
+            sesion.setAttribute("totalCompra", totalCompra);
+            //volvemos a la pagina principal
+            gotoPage("/index.html", request, response);
+          }
     }
 
     // Metodo GET
@@ -76,19 +89,6 @@ public class Accion extends HttpServlet {
             //gotoPage("/index.html", request, response);
         }else if(request.getParameter("irapagar") != null){
             gotoPage("/Pago", request, response);
-        }else if(request.getParameter("pagaryvolver")!=null){
-          //eliminamos los atributos de la sesion
-          HttpSession sesion = request.getSession(true);
-          ArrayList<Ejemplar> carrito = (ArrayList) sesion.getAttribute("carrito");
-          carrito.clear();
-          sesion.setAttribute("carrito", carrito);
-
-          //buscamos el atributo de total de compra y si no existe lo creamos
-          Integer totalCompra = (Integer) sesion.getAttribute("totalCompra");
-          totalCompra = 0;
-          sesion.setAttribute("totalCompra", totalCompra);
-          //volvemos a la pagina principal
-          gotoPage("/index.html", request, response);
         }else if(request.getParameter("volveralcarrito")!=null){
           //abrimos el carrito de la compra
           gotoPage("/Carrito", request, response);
