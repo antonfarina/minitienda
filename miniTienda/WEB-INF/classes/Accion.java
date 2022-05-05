@@ -88,7 +88,7 @@ public class Accion extends HttpServlet {
             gotoPage("/Carrito", request, response);
             //gotoPage("/index.html", request, response);
         }else if(request.getParameter("irapagar") != null){
-            gotoPage("/Pago", request, response);
+            gotoPage("/pago.jsp", request, response);
         }else if(request.getParameter("volveralcarrito")!=null){
           //abrimos el carrito de la compra
           gotoPage("/Carrito", request, response);
