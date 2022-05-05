@@ -85,13 +85,13 @@ public class Accion extends HttpServlet {
 
             //lo guardamos en la sesion
             sesion.setAttribute("totalCompra", totalCompra);
-            gotoPage("/Carrito", request, response);
+            gotoPage("/carrito.jsp", request, response);
             //gotoPage("/index.html", request, response);
         }else if(request.getParameter("irapagar") != null){
             gotoPage("/Pago", request, response);
         }else if(request.getParameter("volveralcarrito")!=null){
           //abrimos el carrito de la compra
-          gotoPage("/Carrito", request, response);
+          gotoPage("/carrito.jsp", request, response);
         }else if(request.getParameter("eliminar")!=null){
           //obtenemos el indice el elemento a eliminar
           Integer i = Integer.parseInt(request.getParameter("eliminado"));
@@ -121,7 +121,7 @@ public class Accion extends HttpServlet {
           //lo guardamos en la sesion
           sesion.setAttribute("totalCompra", totalCompra);
           //abrimos el carrito de la compra
-          gotoPage("/Carrito", request, response);
+          gotoPage("/carrito.jsp", request, response);
         }
     }
 
