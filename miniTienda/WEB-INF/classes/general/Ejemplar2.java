@@ -3,62 +3,52 @@ import java.util.Objects;
 
 public class Ejemplar implements Serializable {
 
-    private String modelo;
-    private String marca;
-    private String color;
-    private Integer precio;
+    private final String modelo;
+    private final String marca;
+    private final String color;
+    private final Integer precio;
     private Integer cantidad;
     private Integer precioTotal;
 
-    public Ejemplar() {
+    public Ejemplar(String modelo, String marca, String color, Integer precio, Integer cantidad, Integer precioTotal) {
+        this.modelo = modelo;
+        this.marca = marca;
+        this.color = color;
+        this.precio = precio;
+        this.precioTotal = precioTotal;
+        this.cantidad = cantidad;
     }
 
     public String getModelo() {
         return modelo;
     }
 
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-
     public String getMarca() {
         return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
     }
 
     public String getColor() {
         return color;
     }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
-
     public Integer getPrecio() {
         return precio;
-    }
-
-    public void setPrecio(Integer precio) {
-        this.precio = precio;
-    }
-
-    public Integer getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(Integer cantidad) {
-        this.cantidad = cantidad;
     }
 
     public Integer getPrecioTotal() {
         return precioTotal;
     }
 
-    public void setPrecioTotal(Integer precioTotal) {
-        this.precioTotal = precioTotal;
+    public Integer getCantidad() {
+        return cantidad;
+    }
+
+    public void setPrecioTotal(Integer p){
+      precioTotal+=p;
+    }
+
+    public void setCantidad(Integer c){
+      cantidad+=c;
     }
 
     @Override
