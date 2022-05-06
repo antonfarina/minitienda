@@ -11,24 +11,22 @@
   <form method="get" action="formularioRegistro">
     <fieldset>
       <legend>Información de contacto</legend>
-      <label>Dni:</label>
-      <input type="text" name="dni" onchange="validar(this.form)"><br />
       <label>Nombre:</label>
-      <input type="text" name="nombre" onchange="validar(this.form)"><br />
+      <input type="text" name="nombre" pattern="[a-zA-Z]+" onchange="validar(this.form)"><br />
       <label>Apellido1:</label>
-      <input type="text" name="apellido1" onchange="validar(this.form)"><br />
+      <input type="text" name="apellido1" pattern="[a-zA-Z]+" onchange="validar(this.form)"><br />
       <label>Apellido2:</label>
-      <input type="text" name="apellido2" onchange="validar(this.form)"><br />
+      <input type="text" name="apellido2" pattern="[a-zA-Z]+" onchange="validar(this.form)"><br />
       <label>Correo electrónico:</label>
-      <input type="text" name="correo" onchange="validar(this.form)"><br />
+      <input type="email" name="correo" onchange="validar(this.form)"><br />
       <label>Número de teléfono: </label>
-      <input type="text" name="telefono" onchange="validar(this.form)"><br />
+      <input type="text" name="telefono" pattern="[1-9][0-9]{8}" onchange="validar(this.form)"><br />
     </fieldset>
     <br />
     <fieldset>
       <legend>Información de contacto</legend>
       <label>Tarjeta:</label>
-      <input type="text" name="tarjeta" onchange="validar(this.form)"><br />
+      <input type="text" name="tarjeta" pattern="[0-9]{16}" onchange="validar(this.form)"><br />
       <label>Tipo de tarjeta:</label>
       <select name="tipo" size="1">
         <option value="credito">Crédito</option>
@@ -49,8 +47,9 @@
   }
   //funcion para habilitar el boton de registro si estan todos los datos completados
   function validar(frm) {
-    frm.enviar.disabled = (frm.dni.value == '' || frm.nombre.value == '' || frm.apellido1.value == '' || frm.apellido2.value == '' || frm.tarjeta.value == '' frm.correo.value == '' || frm.telefono.value == '');
+    frm.enviar.disabled = (frm.nombre.value == '' || frm.apellido1.value == '' || frm.apellido2.value == '' || frm.tarjeta.value == '' frm.correo.value == '' || frm.telefono.value == '');
   }
+
 </script>
 
 </html>
