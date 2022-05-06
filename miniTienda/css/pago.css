@@ -10,11 +10,12 @@ body{
   background-color: #c9497b;
   color: white;
 }
+
 h1{
   text-align: center;
 }
 
-div {
+contenedor {
   margin: auto;
   margin-top: 1vw;
   text-align: center;
@@ -22,12 +23,12 @@ div {
   padding: 2vw;
 }
 
-div > *{
+contenedor > *{
   text-align: center;
   opacity:100%;
 }
 
-input[type="submit"] {
+input[type="submit"], input[type="reset"] {
   cursor: pointer;
   border-radius: 5px;
   padding: 0.5vw;

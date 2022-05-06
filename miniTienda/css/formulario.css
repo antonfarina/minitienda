@@ -1,50 +1,63 @@
+@import "pago.css";
+
 * {
   box-sizing: border-box;
+}
+#cont{
+  margin-top: 3vw;
 }
 
 form {
   width: 30%;
-  padding: 16px;
+  padding: 2vw;
   border-radius: 10px;
   margin: auto;
-  back
+  border: solid 1px white;
+  background-color: #0b0b0b52;
 }
 
 form label {
-  width: 50%;
   font-weight: bold;
-  display: inline-block;
-}
-
-form input[type="text"],
-form input[type="date"],
-form input[type="password"],
-form input[type="color"],
-select {
-  padding: 0.2vw 0.5vw;
-  border: 1px solid #474747;
-  border-radius: 3px;
-  margin: 0.5vw 0;
-  width: 45%;
-  display: inline-block;
 }
 
 .botones {
   display: flex;
   align-content: space-between;
   justify-content: center;
+  margin-top: 1vw;
+  padding: 2vw 0;
 }
 
-form input[type="submit"],
-form input[type="reset"] {
+#cliente{
+  display: grid;
+  grid-template-areas: "1 2" "3 4" "5 6" "7 8" "9 10" "11 12" "13 14";
+  grid-gap: 1.3vw;
+}
+
+#cliente > *{
   width: 100%;
-  padding: 8px 16px;
-  margin: 2vw;
-  border: 1px solid #474747;
-  border-radius: 5px;
 }
 
-form input[type="submit"]:hover,
-form input[type="reset"]:hover {
+input[type="reset"]{
+  background-color: #fcb726;
+  margin-right: 2vw;
+}
+
+input[type="text"], input[type="email"]{
+  background-color: #f9141400;
+  border: solid 1px white;
+  border-radius: 5px;
+  font-size: 1vw;
+  color: white;
+  padding: 0.5vw;
+}
+
+#cliente > select:nth-child(14){
+  background-color: #f9141400;
+  border: solid 1px white;
+  border-radius: 5px;
+  font-size: 1vw;
+  color: white;
+  padding: 0.5vw;
   cursor: pointer;
 }
