@@ -2,41 +2,41 @@
   <%@page import="java.util.*" %>
     <%@page session="true" %>
       <%@page import="general.Ejemplar" %>
-      <%@taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+        <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-        <!DOCTYPE HTML>
-        <HTML>
-          <HEAD>
-            <TITLE>Carrito de compra:</TITLE>
-            <meta charset="UTF-8">
-              <link rel="stylesheet" href="css/carrito.css"></HEAD>
-              <body>
-                <div>
-                  <H1>Carrito de la compra</H1>
-                  <form method="get" action="Accion">
-                    <table>
-                      <tr>
-                        <th>Marca</th>
-                        <th>Modelo</th>
-                        <th>Color</th>
-                        <th>Precio por unidad</th>
-                        <th>Cantidad</th>
-                        <th>Precio total</th>
-                        <th></th>
-                      </tr>
-                      <%!int i=0;%>
-                        <c:forEach var="ejemplar" items="${carrito}">
-                          <tr>
-                            <td>${ejemplar.marca}</td>
-                            <td>${ejemplar.modelo}</td>
-                            <td>${ejemplar.color}</td>
-                            <td>${ejemplar.precio}</td>
-                            <td>${ejemplar.cantidad}</td>
-                            <td>${ejemplar.precioTotal}</td>
-                            <td>
-                              <input type="radio" name="eliminado" value="<%=i%>"></td>
-                            </tr>
-                            <%i++;%>
+          <!DOCTYPE HTML>
+          <HTML>
+            <HEAD>
+              <TITLE>Carrito de compra:</TITLE>
+              <meta charset="UTF-8">
+                <link rel="stylesheet" href="css/carrito.css"></HEAD>
+                <body>
+                  <div>
+                    <H1>Carrito de la compra</H1>
+                    <form method="get" action="Accion">
+                      <table>
+                        <tr>
+                          <th>Marca</th>
+                          <th>Modelo</th>
+                          <th>Color</th>
+                          <th>Precio por unidad</th>
+                          <th>Cantidad</th>
+                          <th>Precio total</th>
+                          <th></th>
+                        </tr>
+                          <c:set var="fila" scope="page" value="${0}"/>
+                          <c:forEach var="ejemplar" items="${carrito}">
+                            <tr>
+                              <td>${ejemplar.marca}</td>
+                              <td>${ejemplar.modelo}</td>
+                              <td>${ejemplar.color}</td>
+                              <td>${ejemplar.precio}</td>
+                              <td>${ejemplar.cantidad}</td>
+                              <td>${ejemplar.precioTotal}</td>
+                              <td>
+                                <input type="radio" name="eliminado" value="${fila}"></td>
+                              </tr>
+                              <c:set var="fila" value="${fila + 1}" scope="page"/>
                             </c:forEach>
 
                             <tr>

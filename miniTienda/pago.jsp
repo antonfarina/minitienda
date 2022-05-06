@@ -1,11 +1,6 @@
 <%@page import="java.io.*" %>
 <%@page session="true" %>
 
-<%
-// Obtenemos el total de la compra a partir de la sesion
-Integer totalCompra = (Integer)session.getAttribute("totalCompra");
-%>
-
 <!DOCTYPE HTML>
 <HTML lang="es">
   <HEAD>
