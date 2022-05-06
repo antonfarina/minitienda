@@ -9,8 +9,8 @@ public class Usuario implements Serializable {
     private String apellido2;
     private String correo;
     private String telefono;
-    private Integer numTarjeta;
-    private String tipoTarjeta;
+    private String tarjeta;
+    private String tipo;
 
     public Usuario(){
     }
@@ -63,19 +63,19 @@ public class Usuario implements Serializable {
         this.telefono = telefono;
     }
 
-    public Integer getNumTarjeta() {
-        return numTarjeta;
+    public String getTarjeta() {
+        return tarjeta;
     }
 
-    public void setNumTarjeta(Integer numTarjeta) {
-        this.numTarjeta = numTarjeta;
+    public void setTarjeta(String tarjeta) {
+        this.tarjeta = tarjeta;
     }
 
-    public String getTipoTarjeta() {
-        return tipoTarjeta;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setTipoTarjeta(String tipoTarjeta) {
-        this.tipoTarjeta = tipoTarjeta;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }
