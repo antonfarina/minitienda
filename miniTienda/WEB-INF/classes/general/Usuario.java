@@ -78,4 +78,4 @@ public class Usuario implements Serializable {
     public void setTipoTarjeta(String tipoTarjeta) {
         this.tipoTarjeta = tipoTarjeta;
     }
-
+}
