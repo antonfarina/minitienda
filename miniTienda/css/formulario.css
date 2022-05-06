@@ -29,7 +29,7 @@ select {
   display: inline-block;
 }
 
-.botones{
+.botones {
   display: flex;
   align-content: space-between;
   justify-content: center;
