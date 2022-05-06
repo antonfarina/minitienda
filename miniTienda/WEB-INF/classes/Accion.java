@@ -1,5 +1,3 @@
-package general;
-
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 import java.io.*;
@@ -48,13 +46,8 @@ public class Accion extends HttpServlet {
             Integer precioTotal = precio * Integer.parseInt(request.getParameter("cantidad"));
 
             //creamos un ejemplar
-            Ejemplar ejemplar = new Ejemplar();
-            ejemplar.setModelo(modelo);
-            ejemplar.setMarca(marca);
-            ejemplar.setColor(color);
-            ejemplar.setPrecio(precio);
-            ejemplar.setCantidad(cantidad);
-            ejemplar.setPrecioTotal(precioTotal);
+            Ejemplar ejemplar = new Ejemplar(modelo, marca, color, precio, cantidad, precioTotal);
+            System.out.println(ejemplar);
             //recuperamos el carrito de la compra
             ArrayList<Ejemplar> carrito = (ArrayList) sesion.getAttribute("carrito");
             if (carrito == null) {
@@ -65,11 +58,11 @@ public class Accion extends HttpServlet {
             }
             //comprobamos si ya se habia adquirido un movil igual para aumentar la cantidad
             if(carrito.contains(ejemplar)){
-              for(int i = 0; i < carrito.size(); i++){
+              for(int i=0; i<carrito.size(); i++){
                 System.out.println(carrito.get(i));
                 if(carrito.get(i).equals(ejemplar)){
-                  carrito.get(i).setPrecioTotal(carrito.get(i).getPrecioTotal() + ejemplar.getCantidad() * ejemplar.getPrecio());
-                  carrito.get(i).setCantidad(carrito.get(i).getCantidad() + ejemplar.getCantidad());
+                  carrito.get(i).setPrecioTotal(ejemplar.getCantidad()*ejemplar.getPrecio());
+                  carrito.get(i).setCantidad(ejemplar.getCantidad());
                   break;
                 }
               }
@@ -93,8 +86,9 @@ public class Accion extends HttpServlet {
             //lo guardamos en la sesion
             sesion.setAttribute("totalCompra", totalCompra);
             gotoPage("/carrito.jsp", request, response);
+            //gotoPage("/index.html", request, response);
         }else if(request.getParameter("irapagar") != null){
-            gotoPage("/pagoDatos.jsp", request, response);
+            gotoPage("/Pago", request, response);
         }else if(request.getParameter("volveralcarrito")!=null){
           //abrimos el carrito de la compra
           gotoPage("/carrito.jsp", request, response);
@@ -128,8 +122,6 @@ public class Accion extends HttpServlet {
           sesion.setAttribute("totalCompra", totalCompra);
           //abrimos el carrito de la compra
           gotoPage("/carrito.jsp", request, response);
-        }else if(request.getParameter("registrar")!=null){
-          gotoPage("/pago.jsp", request, response);
         }
     }
 

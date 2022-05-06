@@ -14,7 +14,7 @@
     <body>
       <div id="cont">
         <H1>REGISTRO DE CLIENTE</H1>
-        <form method="get" action="formularioRegistro">
+        <form method="get" action="Accion">
           <div id="cliente">
             <label>Nombre:</label>
             <input type="text" name="nombre" pattern="[a-zA-Z]+">

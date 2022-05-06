@@ -1,4 +1,19 @@
-@import "pago.css";
+html{
+  font-family: Verdana;
+}
+body{
+  background-image: url('../imagenes/pago.png');
+  margin: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-color: #c9497b;
+  color: white;
+}
+
+h1{
+  text-align: center;
+}
 
 * {
   box-sizing: border-box;
@@ -18,6 +33,7 @@ form {
 
 form label {
   font-weight: bold;
+  line-height: 2;
 }
 
 .botones {
@@ -38,11 +54,6 @@ form label {
   width: 100%;
 }
 
-input[type="reset"]{
-  background-color: #fcb726;
-  margin-right: 2vw;
-}
-
 input[type="text"], input[type="email"]{
   background-color: #f9141400;
   border: solid 1px white;
@@ -50,6 +61,22 @@ input[type="text"], input[type="email"]{
   font-size: 1vw;
   color: white;
   padding: 0.5vw;
+}
+
+
+input[type="submit"], input[type="reset"] {
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 0.5vw;
+  font-size: 1.1vw;
+  background-color: #43c4e4;
+  border: 0px;
+  color: white;
+}
+
+input[type="reset"]{
+  background-color: #fcb726;
+  margin-right: 2vw;
 }
 
 #cliente > select:nth-child(14){
