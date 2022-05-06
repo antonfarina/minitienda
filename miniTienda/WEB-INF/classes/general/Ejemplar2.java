@@ -1,3 +1,5 @@
+package general;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -85,6 +87,4 @@ public class Ejemplar implements Serializable {
     public String toString() {
         return "Ejemplar{" + "modelo=" + modelo + ", marca=" + marca + ", color=" + color + ", precio=" + precio + ", cantidad=" + cantidad + ", precioTotal=" + precioTotal + '}';
     }
-
-
 }

@@ -1,3 +1,5 @@
+package general;
+
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 import java.io.*;
@@ -58,10 +60,10 @@ public class Accion extends HttpServlet {
             }
             //comprobamos si ya se habia adquirido un movil igual para aumentar la cantidad
             if(carrito.contains(ejemplar)){
-              for(int i=0; i<carrito.size(); i++){
+              for(int i = 0; i < carrito.size(); i++){
                 System.out.println(carrito.get(i));
                 if(carrito.get(i).equals(ejemplar)){
-                  carrito.get(i).setPrecioTotal(ejemplar.getCantidad()*ejemplar.getPrecio());
+                  carrito.get(i).setPrecioTotal(ejemplar.getCantidad() * ejemplar.getPrecio());
                   carrito.get(i).setCantidad(ejemplar.getCantidad());
                   break;
                 }

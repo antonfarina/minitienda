@@ -1,33 +1,12 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <web-app>
-    <servlet>
-        <servlet-name>Carrito</servlet-name>
-        <servlet-class>Carrito</servlet-class>
-    </servlet>
-
-    <servlet>
-        <servlet-name>Accion</servlet-name>
-        <servlet-class>Accion</servlet-class>
-    </servlet>
-
-    <servlet>
-        <servlet-name>Pago</servlet-name>
-        <servlet-class>Pago</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>Carrito</servlet-name>
-        <url-pattern>/Carrito</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>Accion</servlet-name>
-        <url-pattern>/Accion</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>Pago</servlet-name>
-        <url-pattern>/Pago</url-pattern>
-    </servlet-mapping>
+  <servlet>
+    <servlet-name>Accion</servlet-name>
+    <servlet-class>Accion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Accion</servlet-name>
+    <url-pattern>/Accion</url-pattern>
+  </servlet-mapping>
 </web-app>
