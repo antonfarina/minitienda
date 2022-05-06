@@ -16,7 +16,7 @@ Integer totalCompra = (Integer)session.getAttribute("totalCompra");
   <BODY>
     <div>
       <H1>PLATAFORMA DE PAGO</H1>
-      <H2>Importe total:<%=totalCompra%>euros</H2>
+      <H2>Importe total: ${totalCompra} euros</H2>
       <form method="get" action="Accion">
         <input type="submit" name="volveralcarrito" value="Volver al carrito">
       </form>
