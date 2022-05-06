@@ -4,7 +4,7 @@
 
   <servlet>
     <servlet-name>Accion</servlet-name>
-    <servlet-class>Accion</servlet-class>
+    <servlet-class>general.Accion</servlet-class>
   </servlet>
 
   <servlet-mapping>
