@@ -72,18 +72,27 @@ public class BBDD {
     }
 
     //devuelve un usuario extraido de la base de datos con el dni que se proporciona
-    public Usuario consultarUsuario(String dni) {
-        Usuario u = null;
+    public Usuario consultarUsuario(Integer id) {
+        Usuario u = new Usuario();
         //consulta con el usuario buscado por dni
         String consulta = "select * from usuarios where id=?";
         //creamos el prepareStatement
         try (PreparedStatement stmUsuario = conexion.prepareStatement(consulta)) {
             //ponemos el dni
-            stmUsuario.setString(1, dni);
+            stmUsuario.setInt(1, id);
             //ejecutamos la consulta
             ResultSet rs = stmUsuario.executeQuery();
             while (rs.next()) {
-                u = new Usuario(rs.getInt("id"), rs.getString("dni"), rs.getString("nombre"), rs.getString("apellido1"), rs.getString("apellido2"), rs.getString("contrasena"), rs.getString("genero"), rs.getDate("fecha_nacimiento").toLocalDate(), rs.getString("correo"), rs.getString("telefono"), rs.getString("color_favorito"));
+              u.setId(rs.getInt("id"));
+              u.setNombre(rs.getString("nombre"));
+              u.setApellido1(rs.getString("apellido1"));
+              u.setApellido2(rs.getString("apellido2"));
+              u.setCorreo(rs.getString("correo"));
+              u.setTelefono(rs.getString("telefono"));
+              u.setCorreo(rs.getString("correo"));
+              u.setTelefono(rs.getString("telefono"));
+              u.setTarjeta(rs.getString("tarjeta"));
+              u.setTipo(rs.getString("tipo"));
             }
             rs.close();
         } catch (SQLException e) {

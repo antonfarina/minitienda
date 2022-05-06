@@ -9,7 +9,7 @@ public class Usuario implements Serializable {
     private String apellido2;
     private String correo;
     private String telefono;
-    private Integer tarjeta;
+    private String tarjeta;
     private String tipo;
 
     public Usuario(){
@@ -63,11 +63,11 @@ public class Usuario implements Serializable {
         this.telefono = telefono;
     }
 
-    public Integer getTarjeta() {
+    public String getTarjeta() {
         return tarjeta;
     }
 
-    public void setTarjeta(Integer tarjeta) {
+    public void setTarjeta(String tarjeta) {
         this.tarjeta = tarjeta;
     }
 
