@@ -88,11 +88,11 @@ public class BBDD {
           stmPedido.executeUpdate();
 
           consulta = "select numero from pedidos where usuario=? order by numero desc";
-
+          stmPedido = conexion.prepareStatement(consulta);
           stmPedido.setString(1, p.getUsuario().getCorreo());
           //ejecutamos la consulta
           ResultSet rs = stmPedido.executeQuery();
-          while (rs.next()) {
+          if (rs.next()) {
             numero = rs.getInt("numero");
           }
           rs.close();
@@ -101,5 +101,4 @@ public class BBDD {
       }
       return numero;
     }
-
 }
