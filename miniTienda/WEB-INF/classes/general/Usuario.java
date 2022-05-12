@@ -1,26 +1,18 @@
-
+package general;
 import java.io.Serializable;
 
 public class Usuario implements Serializable {
 
-    private Integer id;
     private String nombre;
     private String apellido1;
     private String apellido2;
     private String correo;
+    private String direccion;
     private String telefono;
     private String tarjeta;
     private String tipo;
 
     public Usuario(){
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getNombre() {
@@ -78,4 +70,14 @@ public class Usuario implements Serializable {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+
 }
