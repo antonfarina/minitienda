@@ -1,6 +1,7 @@
 html{
   font-family: Verdana;
 }
+
 body{
   background-image: url('../imagenes/pago.png');
   margin: 0;
@@ -15,7 +16,7 @@ h1{
   text-align: center;
 }
 
-contenedor {
+.contenedor {
   margin: auto;
   margin-top: 1vw;
   text-align: center;
@@ -23,9 +24,8 @@ contenedor {
   padding: 2vw;
 }
 
-contenedor > *{
+.contenedor > *{
   text-align: center;
-  opacity:100%;
 }
 
 input[type="submit"], input[type="reset"] {
