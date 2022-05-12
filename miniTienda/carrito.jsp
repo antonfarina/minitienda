@@ -1,6 +1,7 @@
 <%@page import="java.io.*" %>
   <%@page import="java.util.*" %>
     <%@page session="true" %>
+    <%@page pageEncoding="UTF-8"%>
       <%@page import="general.Ejemplar" %>
         <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
