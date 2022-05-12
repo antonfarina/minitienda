@@ -54,9 +54,8 @@ public class BBDD {
 
     public void insertarUsuario(Usuario u) {
         //Se inserta el usuario introduciendo para ello los campos requeridos
-        //consulta
-        String consulta = "insert into usuarios(nombre,apellido1,apellido2,correo,telefono,tarjeta,tipo) "
-                + "values(?,?,?,?,?,?,?)";
+        String consulta = "insert into usuarios(nombre, apellido1, apellido2, correo, direccion, telefono, tarjeta, tipo) "
+                + "values(?,?,?,?,?,?,?,?)";
         //creamos el prepareStatement
         try (PreparedStatement stmUsuario = conexion.prepareStatement(consulta)) {
           //instroducimos los datos
@@ -64,20 +63,20 @@ public class BBDD {
             stmUsuario.setString(2, u.getApellido1());
             stmUsuario.setString(3, u.getApellido2());
             stmUsuario.setString(4, u.getCorreo());
-            stmUsuario.setString(5, u.getTelefono());
-            stmUsuario.setString(6, u.getTarjeta());
-            stmUsuario.setString(7, u.getTipo());
+            stmUsuario.setString(5, u.getDireccion());
+            stmUsuario.setString(6, u.getTelefono());
+            stmUsuario.setString(7, u.getTarjeta());
+            stmUsuario.setString(8, u.getTipo());
             //ejecutamos la insercion
             stmUsuario.executeUpdate();
-
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
     }
 
     public int insertarPedido(Pedido p){
-      int numero=0;
-      String consulta = "insert into pedidos(usuario,precio,narticulos) "
+      int numero = 0;
+      String consulta = "insert into pedidos(usuario, precio, narticulos) "
               + "values(?,?,?)";
       //creamos el prepareStatement
       try (PreparedStatement stmPedido = conexion.prepareStatement(consulta)) {
@@ -94,7 +93,7 @@ public class BBDD {
           //ejecutamos la consulta
           ResultSet rs = stmPedido.executeQuery();
           while (rs.next()) {
-            numero=rs.getInt("numero");
+            numero = rs.getInt("numero");
           }
           rs.close();
       } catch (SQLException e) {

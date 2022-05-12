@@ -11,7 +11,7 @@ public class Accion extends HttpServlet {
 
     public void init(ServletConfig config) throws ServletException{
       super.init(config);
-      baseDatos=new BBDD();
+      baseDatos = new BBDD();
     }
 
     // Metodo POST
@@ -136,10 +136,10 @@ public class Accion extends HttpServlet {
           gotoPage("/carrito.jsp", request, response);
         }else if(request.getParameter("registrar")!=null){
           HttpSession sesion = request.getSession(true);
-          Usuario u;
-          u=baseDatos.consultarUsuario(request.getParameter("correo"));
-          if(u==null){
-            u=new Usuario();
+          Usuario u = null;
+          u = baseDatos.consultarUsuario(request.getParameter("correo"));
+          if(u == null){
+            u = new Usuario();
             u.setNombre(request.getParameter("nombre"));
             u.setApellido1(request.getParameter("apellido1"));
             u.setApellido2(request.getParameter("apellido2"));
@@ -150,18 +150,18 @@ public class Accion extends HttpServlet {
             u.setTipo(request.getParameter("tipo"));
             baseDatos.insertarUsuario(u);
           }
-          Pedido p=new Pedido();
+          Pedido p = new Pedido();
           p.setUsuario(u);
           Integer totalCompra = (Integer) sesion.getAttribute("totalCompra");
           p.setPrecio(totalCompra);
-          Integer articulos=0;
+          Integer articulos = 0;
           ArrayList<Ejemplar> carrito = (ArrayList) sesion.getAttribute("carrito");
-          for(Ejemplar e:carrito){
-            articulos+=e.getCantidad();
+          for(Ejemplar e: carrito){
+            articulos += e.getCantidad();
           }
           p.setNarticulos(articulos);
           p.setNumero(baseDatos.insertarPedido(p));
-          sesion.setAttribute("pedido",p);
+          sesion.setAttribute("pedido", p);
           gotoPage("/pago.jsp", request, response);
         }
     }

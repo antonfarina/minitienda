@@ -13,14 +13,13 @@
   <BODY>
     <div class="contenedor">
       <H1>DETALLES DEL PEDIDO</H1>
-      <h3>Nombre: </h3>
-      <h3>Correo: </h3>
-      <h3>Teléfono: </h3>
-      <h3>Correo electrónico: </h3>
-      <h3>Dirección: </h3>
-      <h3>Método de pago: </h3>
-      <h3>Nº de artículos: </h3>
-      <h3>Importe total: € </h3>
+      <h3>Nombre: ${pedido.usuario.nombre}</h3>
+      <h3>Teléfono: ${pedido.usuario.telefono}</h3>
+      <h3>Correo electrónico: ${pedido.usuario.correo}</h3>
+      <h3>Dirección: ${pedido.usuario.direccion}</h3>
+      <h3>Método de pago: ${pedido.usuario.tarjeta}</h3>
+      <h3>Nº de artículos: ${pedido.narticulos}</h3>
+      <h3>Importe total: ${pedido.precio}€ </h3>
       <form method="get" action="Accion">
         <input type="submit" name="volveralcarrito" value="Volver al carrito">
       </form>
