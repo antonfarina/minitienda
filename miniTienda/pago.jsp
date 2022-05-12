@@ -2,6 +2,7 @@
 <%@page session="true"%>
 <%@page pageEncoding="UTF-8"%>
 <%@page isELIgnored="false"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 
 <!DOCTYPE HTML>
 <HTML lang="es">
@@ -17,7 +18,8 @@
       <h3>Teléfono: ${pedido.usuario.telefono}</h3>
       <h3>Correo electrónico: ${pedido.usuario.correo}</h3>
       <h3>Dirección: ${pedido.usuario.direccion}</h3>
-      <h3>Método de pago: tarjeta de ${pedido.usuario.tipo} </h3>
+      <c:set var = "final" value = "${fn:substring(pedido.usuario.tarjeta, 11, 15)}" />
+      <h3>Método de pago: tarjeta de ${pedido.usuario.tipo} acabada en ${final} </h3>
       <h3>Nº de artículos: ${pedido.narticulos}</h3>
       <h3>Importe total: ${pedido.precio}€ </h3>
       <form method="get" action="Accion">
