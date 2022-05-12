@@ -1,6 +1,7 @@
 <%@page import="java.io.*" %>
   <%@page session="true" %>
   <%@page pageEncoding="UTF-8"%>
+  <%@ page isELIgnored = "false" %>
 
     <!DOCTYPE HTML>
     <html lang="es">
