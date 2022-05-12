@@ -34,11 +34,11 @@ public class Pedido implements Serializable {
         this.narticulos = narticulos;
     }
 
-    public Integer getNumeros() {
+    public Integer getNumero() {
         return numero;
     }
 
-    public void setNumeros(Integer numero) {
+    public void setNumero(Integer numero) {
         this.numero = numero;
     }
 }

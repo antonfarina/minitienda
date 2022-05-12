@@ -1,4 +1,4 @@
-
+package general;
 import java.sql.*;
 
 public class BBDD {
@@ -24,8 +24,8 @@ public class BBDD {
     }
 
     //Comprueba si el usuario ya está en la base de datos
-    public boolean consultarUsuario(String correo) {
-        boolean encontrado=false;
+    public Usuario consultarUsuario(String correo) {
+        Usuario u = null;
         //consulta con el usuario buscado por dni
         String consulta = "select correo from usuarios where correo=?";
         //creamos el prepareStatement
@@ -35,13 +35,21 @@ public class BBDD {
             //ejecutamos la consulta
             ResultSet rs = stmUsuario.executeQuery();
             while (rs.next()) {
-              encontrado=true;
+              u = new Usuario();
+              u.setNombre(rs.getString("nombre"));
+              u.setApellido1(rs.getString("apellido1"));
+              u.setApellido2(rs.getString("apellido2"));
+              u.setCorreo(rs.getString("correo"));
+              u.setDireccion(rs.getString("direccion"));
+              u.setTelefono(rs.getString("telefono"));
+              u.setTarjeta(rs.getString("tarjeta"));
+              u.setTipo(rs.getString("tipo"));
             }
             rs.close();
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
-        return encontrado;
+        return u;
     }
 
     public void insertarUsuario(Usuario u) {
@@ -62,8 +70,6 @@ public class BBDD {
             //ejecutamos la insercion
             stmUsuario.executeUpdate();
 
-            rs.close();
-
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
@@ -82,9 +88,9 @@ public class BBDD {
           //ejecutamos la insercion
           stmPedido.executeUpdate();
 
-          String consulta = "select numero from pedidos where usuario=? order by numero desc";
-          //ponemos el dni
-          stmUsuario.setString(1, correo);
+          consulta = "select numero from pedidos where usuario=? order by numero desc";
+
+          stmPedido.setString(1, p.getUsuario().getCorreo());
           //ejecutamos la consulta
           ResultSet rs = stmPedido.executeQuery();
           while (rs.next()) {
