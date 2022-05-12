@@ -87,8 +87,12 @@ public class BBDD {
           //ejecutamos la insercion
           stmPedido.executeUpdate();
 
-          consulta = "select numero from pedidos where usuario=? order by numero desc";
-          stmPedido = conexion.prepareStatement(consulta);
+      } catch (SQLException e) {
+          System.err.println(e.getMessage());
+      }
+      consulta = "select numero from pedidos where usuario=? order by numero desc";
+      try (PreparedStatement stmPedido = conexion.prepareStatement(consulta)) {
+
           stmPedido.setString(1, p.getUsuario().getCorreo());
           //ejecutamos la consulta
           ResultSet rs = stmPedido.executeQuery();
