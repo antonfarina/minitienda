@@ -27,7 +27,7 @@ public class BBDD {
     public Usuario consultarUsuario(String correo) {
         Usuario u = null;
         //consulta con el usuario buscado por dni
-        String consulta = "select correo from usuarios where correo=?";
+        String consulta = "select * from usuarios where correo=?";
         //creamos el prepareStatement
         try (PreparedStatement stmUsuario = conexion.prepareStatement(consulta)) {
             //ponemos el dni
@@ -96,9 +96,7 @@ public class BBDD {
           while (rs.next()) {
             numero=rs.getInt("numero");
           }
-
           rs.close();
-
       } catch (SQLException e) {
           System.err.println(e.getMessage());
       }
