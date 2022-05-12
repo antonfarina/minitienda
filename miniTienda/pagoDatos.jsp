@@ -15,19 +15,21 @@
 
     <body>
       <div id="cont">
-        <H1>REGISTRO DE CLIENTE</H1>
+        <H1>DATOS DEL COMPRADOR</H1>
         <form method="get" action="Accion">
           <div id="cliente">
             <label>Nombre:</label>
-            <input type="text" name="nombre" pattern="[a-zA-Z]+">
+            <input type="text" name="nombre" pattern="[a-zA-ZáéíóúñÑü]+">
             <label>Primer apellido:</label>
-            <input type="text" name="apellido1" pattern="[a-zA-Z]+">
+            <input type="text" name="apellido1" pattern="[a-zA-ZáéíóúñÑü]+">
             <label>Segundo apellido:</label>
-            <input type="text" name="apellido2" pattern="[a-zA-Z]+">
+            <input type="text" name="apellido2" pattern="[a-zA-ZáéíóúñÑü]+">
             <label>Correo electrónico:</label>
             <input type="email" name="correo">
             <label>Número de teléfono: </label>
             <input type="text" name="telefono" pattern="[1-9][0-9]{8}">
+            <label>Dirección: </label>
+            <input type="text" name="direccion">
             <label>Tarjeta:</label>
             <input type="text" name="tarjeta" pattern="[0-9]{16}">
             <label>Tipo de tarjeta:</label>

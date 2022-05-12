@@ -24,8 +24,8 @@ h1{
   padding: 2vw;
 }
 
-.contenedor > *{
-  text-align: center;
+.contenedor > h3{
+  text-align: left;
 }
 
 input[type="submit"], input[type="reset"] {
