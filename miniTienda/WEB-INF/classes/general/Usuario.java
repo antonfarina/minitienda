@@ -1,4 +1,5 @@
 package general;
+
 import java.io.Serializable;
 
 public class Usuario implements Serializable {
@@ -12,7 +13,7 @@ public class Usuario implements Serializable {
     private String tarjeta;
     private String tipo;
 
-    public Usuario(){
+    public Usuario() {
     }
 
     public String getNombre() {
@@ -78,6 +79,5 @@ public class Usuario implements Serializable {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-
 
 }

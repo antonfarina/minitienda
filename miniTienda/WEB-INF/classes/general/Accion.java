@@ -100,7 +100,7 @@ public class Accion extends HttpServlet {
             sesion.setAttribute("totalCompra", totalCompra);
             gotoPage("/carrito.jsp", request, response);
         }else if(request.getParameter("irapagar") != null){
-            gotoPage("/pagoDatos.jsp", request, response);
+            gotoPage("/registro.jsp", request, response);
         }else if(request.getParameter("volveralcarrito")!=null){
           //abrimos el carrito de la compra
           gotoPage("/carrito.jsp", request, response);

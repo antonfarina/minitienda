@@ -16,6 +16,6 @@ create table pedidos(
 	usuario varchar(50) not null,
 	precio integer not null,
 	narticulos integer not null,
-	foreign key(usuario) references usuarios(correo),
+	foreign key(usuario) references usuarios(correo) ON DELETE CASCADE ON UPDATE CASCADE,
 	primary key(usuario,numero)
 );

@@ -1,4 +1,5 @@
 package general;
+
 import java.sql.*;
 
 public class BBDD {
@@ -29,21 +30,21 @@ public class BBDD {
         //consulta con el usuario buscado por dni
         String consulta = "select * from usuarios where correo=?";
         //creamos el prepareStatement
-        try (PreparedStatement stmUsuario = conexion.prepareStatement(consulta)) {
+        try ( PreparedStatement stmUsuario = conexion.prepareStatement(consulta)) {
             //ponemos el dni
             stmUsuario.setString(1, correo);
             //ejecutamos la consulta
             ResultSet rs = stmUsuario.executeQuery();
             while (rs.next()) {
-              u = new Usuario();
-              u.setNombre(rs.getString("nombre"));
-              u.setApellido1(rs.getString("apellido1"));
-              u.setApellido2(rs.getString("apellido2"));
-              u.setCorreo(rs.getString("correo"));
-              u.setDireccion(rs.getString("direccion"));
-              u.setTelefono(rs.getString("telefono"));
-              u.setTarjeta(rs.getString("tarjeta"));
-              u.setTipo(rs.getString("tipo"));
+                u = new Usuario();
+                u.setNombre(rs.getString("nombre"));
+                u.setApellido1(rs.getString("apellido1"));
+                u.setApellido2(rs.getString("apellido2"));
+                u.setCorreo(rs.getString("correo"));
+                u.setDireccion(rs.getString("direccion"));
+                u.setTelefono(rs.getString("telefono"));
+                u.setTarjeta(rs.getString("tarjeta"));
+                u.setTipo(rs.getString("tipo"));
             }
             rs.close();
         } catch (SQLException e) {
@@ -57,8 +58,8 @@ public class BBDD {
         String consulta = "insert into usuarios(nombre, apellido1, apellido2, correo, direccion, telefono, tarjeta, tipo) "
                 + "values(?,?,?,?,?,?,?,?)";
         //creamos el prepareStatement
-        try (PreparedStatement stmUsuario = conexion.prepareStatement(consulta)) {
-          //instroducimos los datos
+        try ( PreparedStatement stmUsuario = conexion.prepareStatement(consulta)) {
+            //instroducimos los datos
             stmUsuario.setString(1, u.getNombre());
             stmUsuario.setString(2, u.getApellido1());
             stmUsuario.setString(3, u.getApellido2());
@@ -74,35 +75,35 @@ public class BBDD {
         }
     }
 
-    public int insertarPedido(Pedido p){
-      int numero = 0;
-      String consulta = "insert into pedidos(usuario, precio, narticulos) "
-              + "values(?,?,?)";
-      //creamos el prepareStatement
-      try (PreparedStatement stmPedido = conexion.prepareStatement(consulta)) {
-        //instroducimos los datos
-          stmPedido.setString(1, p.getUsuario().getCorreo());
-          stmPedido.setInt(2, p.getPrecio());
-          stmPedido.setInt(3, p.getNarticulos());
-          //ejecutamos la insercion
-          stmPedido.executeUpdate();
+    public int insertarPedido(Pedido p) {
+        int numero = 0;
+        String consulta = "insert into pedidos(usuario, precio, narticulos) "
+                + "values(?,?,?)";
+        //creamos el prepareStatement
+        try ( PreparedStatement stmPedido = conexion.prepareStatement(consulta)) {
+            //instroducimos los datos
+            stmPedido.setString(1, p.getUsuario().getCorreo());
+            stmPedido.setInt(2, p.getPrecio());
+            stmPedido.setInt(3, p.getNarticulos());
+            //ejecutamos la insercion
+            stmPedido.executeUpdate();
 
-      } catch (SQLException e) {
-          System.err.println(e.getMessage());
-      }
-      consulta = "select numero from pedidos where usuario=? order by numero desc";
-      try (PreparedStatement stmPedido = conexion.prepareStatement(consulta)) {
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        consulta = "select numero from pedidos where usuario=? order by numero desc";
+        try ( PreparedStatement stmPedido = conexion.prepareStatement(consulta)) {
 
-          stmPedido.setString(1, p.getUsuario().getCorreo());
-          //ejecutamos la consulta
-          ResultSet rs = stmPedido.executeQuery();
-          if (rs.next()) {
-            numero = rs.getInt("numero");
-          }
-          rs.close();
-      } catch (SQLException e) {
-          System.err.println(e.getMessage());
-      }
-      return numero;
+            stmPedido.setString(1, p.getUsuario().getCorreo());
+            //ejecutamos la consulta
+            ResultSet rs = stmPedido.executeQuery();
+            if (rs.next()) {
+                numero = rs.getInt("numero");
+            }
+            rs.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return numero;
     }
 }

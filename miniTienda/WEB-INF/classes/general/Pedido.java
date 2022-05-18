@@ -1,7 +1,9 @@
 package general;
 
 import java.io.Serializable;
+
 public class Pedido implements Serializable {
+
     private Usuario usuario;
     private Integer precio;
     private Integer narticulos;

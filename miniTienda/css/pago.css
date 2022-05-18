@@ -39,3 +39,15 @@ input[type="submit"], input[type="reset"] {
   border: 0px;
   color: white;
 }
+
+.botones {
+  display: flex;
+  align-content: space-between;
+  justify-content: center;
+  margin-top: 1vw;
+  padding: 2vw 0;
+}
+
+#volver{
+  margin-right: 2vw;
+}
