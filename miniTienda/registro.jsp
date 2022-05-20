@@ -1,7 +1,7 @@
 <%@page import="java.io.*" %>
-  <%@page session="true" %>
-  <%@page pageEncoding="UTF-8"%>
-  <%@ page isELIgnored = "false" %>
+<%@page session="true" %>
+<%@page pageEncoding="UTF-8"%>
+<%@ page isELIgnored = "false" %>
 
     <!DOCTYPE HTML>
     <html lang="es">
@@ -34,8 +34,8 @@
             <input type="text" name="tarjeta" pattern="[0-9]{16}" required>
             <label>Tipo de tarjeta:</label>
             <select name="tipo">
-              <option value="credito">Crédito</option>
-              <option value="debito">Débito</option>
+              <option value="crédito">Crédito</option>
+              <option value="débito">Débito</option>
             </select>
           </div>
           <div class="botones">

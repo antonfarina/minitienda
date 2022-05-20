@@ -6,13 +6,15 @@ public class BBDD {
 
     private Connection conexion;
 
+    //constructor de la base de datos
     public BBDD() {
         String url = "";
         try {
+            //cargamos el driver
             Class.forName("org.postgresql.Driver").newInstance();
             System.out.println("Encontrado el driver de PostgreSQL");
             url = "jdbc:postgresql://localhost:5432/minitienda";
-            //usuario y contraseña de la base de datos
+            //usuario y contraseña de la base de datos (modificar a necesidad)
             String usuario = "postgres";
             String contrasena = "1234";
             conexion = DriverManager.getConnection(url, usuario, contrasena);
@@ -27,15 +29,16 @@ public class BBDD {
     //Comprueba si el usuario ya está en la base de datos
     public Usuario consultarUsuario(String correo) {
         Usuario u = null;
-        //consulta con el usuario buscado por dni
+        //consulta con el usuario buscado por correo
         String consulta = "select * from usuarios where correo=?";
         //creamos el prepareStatement
-        try ( PreparedStatement stmUsuario = conexion.prepareStatement(consulta)) {
-            //ponemos el dni
+        try (PreparedStatement stmUsuario = conexion.prepareStatement(consulta)) {
+            //ponemos el correo
             stmUsuario.setString(1, correo);
             //ejecutamos la consulta
             ResultSet rs = stmUsuario.executeQuery();
             while (rs.next()) {
+                //llenamos los campos con la informacion del usuario obtenido en caso de ya existir
                 u = new Usuario();
                 u.setNombre(rs.getString("nombre"));
                 u.setApellido1(rs.getString("apellido1"));
@@ -50,9 +53,11 @@ public class BBDD {
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
+        //devolvemos el usuario
         return u;
     }
 
+    //inserta un nuevo usuario en la base de datos
     public void insertarUsuario(Usuario u) {
         //Se inserta el usuario introduciendo para ello los campos requeridos
         String consulta = "insert into usuarios(nombre, apellido1, apellido2, correo, direccion, telefono, tarjeta, tipo) "
@@ -75,25 +80,25 @@ public class BBDD {
         }
     }
 
+    //insertar un pedido en la base de datos devolviendo el numero del pedido
     public int insertarPedido(Pedido p) {
         int numero = 0;
         String consulta = "insert into pedidos(usuario, precio, narticulos) "
                 + "values(?,?,?)";
         //creamos el prepareStatement
-        try ( PreparedStatement stmPedido = conexion.prepareStatement(consulta)) {
+        try (PreparedStatement stmPedido = conexion.prepareStatement(consulta)) {
             //instroducimos los datos
             stmPedido.setString(1, p.getUsuario().getCorreo());
             stmPedido.setInt(2, p.getPrecio());
             stmPedido.setInt(3, p.getNarticulos());
             //ejecutamos la insercion
             stmPedido.executeUpdate();
-
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
+        //consultamos el numero del pedido que acabamos de insertar
         consulta = "select numero from pedidos where usuario=? order by numero desc";
-        try ( PreparedStatement stmPedido = conexion.prepareStatement(consulta)) {
-
+        try (PreparedStatement stmPedido = conexion.prepareStatement(consulta)) {
             stmPedido.setString(1, p.getUsuario().getCorreo());
             //ejecutamos la consulta
             ResultSet rs = stmPedido.executeQuery();
@@ -104,6 +109,7 @@ public class BBDD {
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
+        //devolvemos el numero del pedido
         return numero;
     }
 }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <web-app>
-
   <servlet>
     <servlet-name>Accion</servlet-name>
     <servlet-class>general.Accion</servlet-class>
@@ -12,4 +11,33 @@
     <url-pattern>/Accion</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>HelperAnadir</servlet-name>
+    <servlet-class>general.HelperAnadir</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>HelperAnadir</servlet-name>
+    <url-pattern>/HelperAnadir</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>HelperEliminar</servlet-name>
+    <servlet-class>general.HelperEliminar</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>HelperEliminar</servlet-name>
+    <url-pattern>/HelperEliminar</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>HelperRegistrar</servlet-name>
+    <servlet-class>general.HelperRegistrar</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>HelperRegistrar</servlet-name>
+    <url-pattern>/HelperRegistrar</url-pattern>
+  </servlet-mapping>
 </web-app>
