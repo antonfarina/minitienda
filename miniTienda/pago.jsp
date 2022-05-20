@@ -21,7 +21,7 @@
       <h3>Teléfono: ${pedido.usuario.telefono}</h3>
       <h3>Correo electrónico: ${pedido.usuario.correo}</h3>
       <h3>Dirección: ${pedido.usuario.direccion}</h3>
-      <h3>Método de pago: tarjeta de ${pedido.usuario.tipo} acabada en ${fn:substring(pedido.usuario.tarjeta, 11, 15)}</h3>
+      <h3>Método de pago: tarjeta de ${pedido.usuario.tipo} acabada en ${fn:substring(pedido.usuario.tarjeta, 12, 16)}</h3>
 
       <div class="botones">
         <form method="get" action="Controlador">

@@ -19,11 +19,11 @@
         <form method="get" action="Controlador">
           <div id="cliente">
             <label>Nombre:</label>
-            <input type="text" name="nombre" pattern="[a-zA-ZáéíóúñÑü]+" required>
+            <input type="text" name="nombre" pattern="[a-zA-ZáéíóúñÑü ]+" required>
             <label>Primer apellido:</label>
-            <input type="text" name="apellido1" pattern="[a-zA-ZáéíóúñÑü]+" required>
+            <input type="text" name="apellido1" pattern="[a-zA-ZáéíóúñÑü\-]+" required>
             <label>Segundo apellido:</label>
-            <input type="text" name="apellido2" pattern="[a-zA-ZáéíóúñÑü]+" required>
+            <input type="text" name="apellido2" pattern="[a-zA-ZáéíóúñÑü\-]+" required>
             <label>Correo electrónico:</label>
             <input type="email" name="correo" required>
             <label>Número de teléfono: </label>
