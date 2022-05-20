@@ -6,7 +6,7 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-public class Accion extends HttpServlet {
+public class Controlador extends HttpServlet {
 
     // Metodo POST
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,8 +28,8 @@ public class Accion extends HttpServlet {
 
     // Metodo GET
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Ejecutamos en funcion de la accion del usuario
-        // Si Accion es "anadir"
+        // Ejecutamos en funcion de la Controlador del usuario
+        // Si Controlador es "anadir"
         if (request.getParameter("anadir") != null) {
             gotoPage("/HelperAnadir", request, response);
         }else if(request.getParameter("irapagar") != null){
