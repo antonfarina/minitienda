@@ -28,6 +28,7 @@ public class Controlador extends HttpServlet {
 
     // Metodo GET
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         // Ejecutamos en funcion de la Controlador del usuario
         // Si Controlador es "anadir"
         if (request.getParameter("anadir") != null) {
@@ -40,6 +41,8 @@ public class Controlador extends HttpServlet {
             gotoPage("/HelperEliminar", request, response);
         }else if(request.getParameter("registrar")!=null){
             gotoPage("/HelperRegistrar", request, response);
+        }else if (request.getParameter("pagaryvolver") != null) {
+            gotoPage("/HelperPagar", request, response);
         }
     }
 

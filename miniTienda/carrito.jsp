@@ -15,7 +15,7 @@
           <body>
             <div>
               <H1>Carrito de la compra</H1>
-              <form method="get" action="Accion">
+              <form method="get" action="Controlador">
                 <c:choose>
                   <c:when test="${carrito.size()!=0}">
                     <%-- si el carrito no esta vacio lo mostramos --%>
@@ -59,7 +59,7 @@
                       <p>
                         <a HREF="/minitienda/index.html">Seguir comprando</a>
                       </p>
-                      <form method="get" action="Accion">
+                      <form method="get" action="Controlador">
                         <input type="submit" name="irapagar" value="Proceder al pago"></form>
                       </div>
                   </c:when>

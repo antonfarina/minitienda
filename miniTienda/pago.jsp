@@ -24,10 +24,10 @@
       <h3>Método de pago: tarjeta de ${pedido.usuario.tipo} acabada en ${fn:substring(pedido.usuario.tarjeta, 11, 15)}</h3>
 
       <div class="botones">
-        <form method="get" action="Accion">
+        <form method="get" action="Controlador">
           <input type="submit" name="volveralcarrito" value="Volver al carrito" id="volver">
         </form>
-        <form method="post" action="Accion">
+        <form method="get" action="Controlador">
           <input type="submit" name="pagaryvolver" value="Pagar">
         </form>
       </div>

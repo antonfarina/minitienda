@@ -16,7 +16,7 @@
     <body>
       <div id="cont">
         <H1>DATOS DEL COMPRADOR</H1>
-        <form method="get" action="Accion">
+        <form method="get" action="Controlador">
           <div id="cliente">
             <label>Nombre:</label>
             <input type="text" name="nombre" pattern="[a-zA-ZáéíóúñÑü]+" required>

@@ -40,4 +40,14 @@
     <servlet-name>HelperRegistrar</servlet-name>
     <url-pattern>/HelperRegistrar</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>HelperPagar</servlet-name>
+    <servlet-class>general.HelperPagar</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>HelperPagar</servlet-name>
+    <url-pattern>/HelperPagar</url-pattern>
+  </servlet-mapping>
 </web-app>
