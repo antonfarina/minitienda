@@ -11,15 +11,21 @@ figure{
   width: auto;
   margin: auto;
 }
+
 figure>img{
   width: 100%;
 }
-input[type="submit"], input[type="radio"], select {
+
+input[type="submit"], input[type="radio"], select, input[type="text"] {
   cursor: pointer;
   background-color: white;
   border: solid 1px black;
   border-radius: 5px;
   font-size: 1vw;
+}
+
+input[type="text"]{
+  cursor: text;
 }
 
 input[type="submit"]{
