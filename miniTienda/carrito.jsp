@@ -60,7 +60,8 @@
                         <a HREF="/minitienda/index.html">Seguir comprando</a>
                       </p>
                       <form method="get" action="Controlador">
-                        <input type="submit" name="irapagar" value="Proceder al pago"></form>
+                        <input type="submit" name="irapagar" value="Proceder al pago">
+                      </form>
                       </div>
                   </c:when>
                   <c:otherwise> <%-- si esta vacio imprimimos que esta vacio --%>
