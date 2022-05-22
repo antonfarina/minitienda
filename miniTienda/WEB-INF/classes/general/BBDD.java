@@ -80,6 +80,29 @@ public class BBDD {
         }
     }
 
+    //modifica un usuario en la base de datos
+    public void modificarUsuario(Usuario u) {
+        //Se inserta el usuario introduciendo para ello los campos requeridos
+        String consulta = "update usuarios set nombre=?, apellido1=?, apellido2=?, direccion=?, telefono=?, tarjeta=?, tipo=? "
+                + "where correo=?";
+        //creamos el prepareStatement
+        try (PreparedStatement stmUsuario = conexion.prepareStatement(consulta)) {
+            //instroducimos los datos
+            stmUsuario.setString(1, u.getNombre());
+            stmUsuario.setString(2, u.getApellido1());
+            stmUsuario.setString(3, u.getApellido2());
+            stmUsuario.setString(4, u.getDireccion());
+            stmUsuario.setString(5, u.getTelefono());
+            stmUsuario.setString(6, u.getTarjeta());
+            stmUsuario.setString(7, u.getTipo());
+            stmUsuario.setString(8, u.getCorreo());
+            //ejecutamos la insercion
+            stmUsuario.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
     //insertar un pedido en la base de datos devolviendo el numero del pedido
     public int insertarPedido(Pedido p) {
         int numero = 0;
